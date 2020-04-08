@@ -347,8 +347,3 @@ router.get('/github/:username', (req,res)=> {
 })
 
 module.exports = router;
-
-
-// &client_id=${config.get(
-//         "githubClientId"
-//       )}&client_secret=${config.get("githubSecret")}

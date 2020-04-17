@@ -7,17 +7,16 @@ import { deleteEducation } from "../../actions/profile";
 
 const Education = ({ education, deleteEducation }) => {
   console.log('education', education);
-
   const educations = education.map((edu) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
       <td className="hide-sm">{edu.degree}</td>
       <td>
-        <Moment format="YYYY/MM/DD">{moment.utc(edu.from)}</Moment> -{" "}
+        <Moment format="DD/MM/YYYY">{moment.utc(edu.from)}</Moment> -{" "}
         {edu.to === null ? (
           " Now"
         ) : (
-          <Moment format="YYYY/MM/DD">{moment.utc(edu.to)}</Moment>
+          <Moment format="DD/MM/YYYY">{moment.utc(edu.to)}</Moment>
         )}
       </td>
       <td>

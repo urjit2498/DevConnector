@@ -19,9 +19,9 @@ const Dashboard = ({
   }, [getCurrentProfile]);
 console.log('@@@@==>', profile);
 
-  return loading && profile === null?(
+  return loading && profile === null ? (
     <Spinner />
-  ):(
+  ) : (
     <Fragment>
       <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">
@@ -33,10 +33,9 @@ console.log('@@@@==>', profile);
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
 
-
           <div className="my-2">
             <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Delete My Account
+              <i className="fas fa-user-minus" style={{marginRight:'5px'}} />{"  "} Delete My Account
             </button>
           </div>
         </Fragment>

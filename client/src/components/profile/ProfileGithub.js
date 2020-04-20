@@ -7,12 +7,12 @@ import { getGithubRepos } from "../../actions/profile";
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   useEffect(() => {
     getGithubRepos(username);
-  }, [getGithubRepos]);
-  console.log('11111=>', getGithubRepos(username));
+  }, [getGithubRepos, username]);
+
   return (
     <div className="profile-github">
       <h2 className="text-primary my-1">Github Repos</h2>
-      {!repos ? (
+      {repos === null ? (
         <Spinner />
       ) : (
         repos.map((repo) => (
@@ -37,9 +37,7 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 <li className="badge badge-dark">
                   Watchers: {repo.watchers_count}
                 </li>
-                <li className="badge badge-light">
-                    Forks: {repo.forks_count}
-                </li>
+                <li className="badge badge-light">Forks: {repo.forks_count}</li>
               </ul>
             </div>
           </div>

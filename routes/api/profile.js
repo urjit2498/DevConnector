@@ -65,7 +65,7 @@ router.post('/', [auth, [
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
         if (status) profileFields.status = status;
-        if (githubusername) profileFields.githubusername = githubusername;
+        profileFields.githubusername = githubusername;
         if(skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
         }
@@ -332,7 +332,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 router.get("/github/:username", async (req, res) => {
   try {
     const uri = encodeURI(
-      `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
+      `https://api.github.com/users/${req.params.username}/repos?per_page=10&sort=created:asc`
     );
     const headers = {
       "user-agent": "node.js",

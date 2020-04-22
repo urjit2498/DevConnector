@@ -76,7 +76,6 @@ export const getGithubRepos = (username) => async (dispatch) => {
       type: GET_REPOS,
       payload: res.data,
     });
-    console.log('11111=>', res.data);
   } catch (err) {
     dispatch({
       type: NO_REPOS,

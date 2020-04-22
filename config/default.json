@@ -1,5 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://urjit2498:urjit2498@devconnector-c6ggy.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "mytoken",
-    "githubToken": "d48bed216c7c944bb95652b85ea9b6dd7b4207da"
-}

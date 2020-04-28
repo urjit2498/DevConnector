@@ -161,6 +161,9 @@ const EditProfile = ({
             username
           </small>
         </div>
+
+        {/* Github profile set as avatar */}
+
         <div className="form-group">
           <input
             type="checkbox"

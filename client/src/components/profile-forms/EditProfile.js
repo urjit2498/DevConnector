@@ -23,6 +23,7 @@ const EditProfile = ({
     linkedin: "",
     youtube: "",
     instagram: "",
+    usegithubavatar: false
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -37,6 +38,7 @@ const EditProfile = ({
         status: loading || !profile.status ? '' : profile.status,
         skills: loading || !profile.skills ? '' : profile.skills.join(','),
         githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
+        usegithubavatar: loading || !profile.usegithubavatar ? '' : profile.usegithubavatar,
         bio: loading || !profile.bio ? '' : profile.bio,
         twitter: loading || !profile.social ? '' : profile.social.twitter,
         facebook: loading || !profile.social ? '' : profile.social.facebook,
@@ -59,10 +61,14 @@ const EditProfile = ({
     linkedin,
     youtube,
     instagram,
+    usegithubavatar
   } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) => {
+    let { name, value, checked } = e.target;
+    if (name === "usegithubavatar") value = checked;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +76,7 @@ const EditProfile = ({
   };
 
   return (
-    <>
+    <Fragment>
       <h1 className="large text-primary">Create Your Profile</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
@@ -154,6 +160,18 @@ const EditProfile = ({
             If you want your latest repos and a Github link, include your
             username
           </small>
+        </div>
+        <div className="form-group">
+          <input
+            type="checkbox"
+            name="usegithubavatar"
+            checked={usegithubavatar}
+            onChange={onChange}
+          />
+          <label htmlFor="usegithubavatar">
+            {" "}
+            Use GitHub avatar image (requires a valid GitHub account)
+          </label>
         </div>
         <div className="form-group">
           <textarea
@@ -240,7 +258,7 @@ const EditProfile = ({
           Go Back
         </Link>
       </form>
-    </>
+    </Fragment>
   );
 };
 

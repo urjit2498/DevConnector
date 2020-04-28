@@ -5,18 +5,18 @@ import {
   UPDATE_PROFILE,
   GET_PROFILES,
   GET_REPOS,
-  NO_REPOS
-} from '../actions/types';
+  NO_REPOS,
+} from "../actions/types";
 
 const initialState = {
   profile: null,
   profiles: [],
   repos: [],
   loading: true,
-  error: {}
+  error: {},
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -38,14 +38,13 @@ export default function(state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
-        profile: null
+        profile: null,
       };
     case CLEAR_PROFILE:
       return {
         ...state,
         profile: null,
         repos: [],
-        loading: true,
       };
     case GET_REPOS:
       return {

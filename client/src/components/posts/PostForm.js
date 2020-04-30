@@ -34,8 +34,4 @@ PostForm.propTypes = {
     addPost: PropTypes.func.isRequired,
 }
 
-// const mapStateToProps = state => ({
-//     post: state.post
-// })
-
 export default connect( null, { addPost } )(PostForm)

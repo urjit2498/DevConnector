@@ -14,16 +14,16 @@ const PostItem = ({
   post: { _id, text, name, avatar, user, likes, comments, date },
   showActions,
 }) => (
-  <div class="post bg-white p-1 my-1">
+  <div className="post bg-white p-1 my-1">
     <div>
       <Link to={`/profile/${user}`}>
-        <img class="round-img" src={avatar} alt="" />
+        <img className="round-img" src={avatar} alt="" />
         <h4>{name}</h4>
       </Link>
     </div>
     <div>
-      <p class="my-1">{text}</p>
-      <p class="post-date">
+      <p className="my-1 mytext">{text}</p>
+      <p className="post-date">
         Posted on <Moment format="DD/MM/YYYY">{date}</Moment>
       </p>
 
@@ -32,31 +32,31 @@ const PostItem = ({
           <button
             onClick={(e) => addLike(_id)}
             type="button"
-            class="btn btn-light"
+            className="btn btn-light"
           >
-            <i class="fas fa-thumbs-up"></i>{" "}
+            <i className="fas fa-thumbs-up"></i>{" "}
             <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
           </button>
           <button
             onClick={(e) => removeLike(_id)}
             type="button"
-            class="btn btn-light"
+            className="btn btn-light"
           >
-            <i class="fas fa-thumbs-down"></i>
+            <i className="fas fa-thumbs-down"></i>
           </button>
-          <Link to={`/posts/${_id}`} class="btn btn-primary">
+          <Link to={`/posts/${_id}`} className="btn btn-primary">
             Discussion{" "}
             {comments.length > 0 && (
-              <span class="comment-count">{comments.length}</span>
+              <span className="comment-count">{comments.length}</span>
             )}
           </Link>
           {!auth.loading && user === auth.user._id && (
             <button
               onClick={(e) => deletePost(_id)}
               type="button"
-              class="btn btn-danger"
+              className="btn btn-danger"
             >
-              <i class="fas fa-times"></i>
+              <i className="fas fa-times"></i>
             </button>
           )}
         </Fragment>

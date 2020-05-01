@@ -37,7 +37,7 @@ const AddEducation = ({ addEducation, history }) => {
         <i className="fas fa-code-branch" /> Add any school or bootcamp that you
         have attended
       </p>
-      <small>* = required field</small>
+      <small style={{color:'#ff0000'}}>* = required field</small>
       <form
         className="form"
         onSubmit={(e) => {

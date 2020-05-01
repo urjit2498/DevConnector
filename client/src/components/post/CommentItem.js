@@ -19,13 +19,13 @@ const CommentItem = ({
       </Link>
     </div>
     <div>
-      <p className="my-1">{text}</p>
+      <p className="my-1" style={{wordBreak: 'break-all'}}>{text}</p>
       <p className="post-date">
         Posted on <Moment format="DD/MM/YYYY">{date}</Moment>
       </p>
       {!auth.loading && user === auth.user._id && (
-        <button onClick={e=>deleteComment(postId, _id)} type='button' classNameName='btn btn-danger'>
-            <i classNameName="fas fa-times"></i>
+        <button onClick={e=>deleteComment(postId, _id)} type='button' className='btn btn-danger'>
+            <i className="fas fa-times"></i>
         </button>
       ) }
     </div>
@@ -33,7 +33,7 @@ const CommentItem = ({
 );
 
 CommentItem.propTypes = {
-    postId: PropTypes.number.isRequired,
+    postId: PropTypes.string.isRequired,
     comment: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     deleteComment: PropTypes.func.isRequired,

@@ -37,9 +37,6 @@ const CreateProfile = ({
       for (const key in profile) {
         if (key in profileData) profileData[key] = profile[key];
       }
-      for (const key in profile.social) {
-        if (key in profileData) profileData[key] = profile.social[key];
-      }
       if (Array.isArray(profileData.skills))
         profileData.skills = profileData.skills.join(", ");
       setFormData(profileData);

@@ -92,7 +92,7 @@ export const login = ( email, password ) => async dispatch => {
     }
 };
 
-// Logout / Clear profile
+// Logout or Clear profile
 export const logout = () => dispatch => {
     dispatch({
       type: CLEAR_PROFILE,

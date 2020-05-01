@@ -40,7 +40,6 @@ router.post(
 // @route       GET api/posts
 // @desc        Get all post
 // @access      Private
-
 router.get('/', auth, async(req, res)=> {
   try {
     const posts = await Post.find().sort({ date: -1 });
@@ -54,7 +53,6 @@ router.get('/', auth, async(req, res)=> {
 // @route       GET api/posts/:id
 // @desc        Get post by id
 // @access      Private
-
 router.get('/:id', auth, async(req, res)=> {
   try {
     const post = await Post.findById(req.params.id);
@@ -104,7 +102,6 @@ router.delete("/:id", auth, async (req, res) => {
 // @route       PUT api/posts/like/:id
 // @desc        Like a post
 // @access      Private
-
 router.put('/like/:id', auth, async(req,res)=> {
   try {
     const post = await Post.findById(req.params.id);
@@ -128,7 +125,6 @@ router.put('/like/:id', auth, async(req,res)=> {
 // @route       PUT api/posts/unlike/:id
 // @desc        Like a post
 // @access      Private
-
 router.put('/unlike/:id', auth, async(req,res)=> {
   try {
     const post = await Post.findById(req.params.id);

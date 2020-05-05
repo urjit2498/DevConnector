@@ -60,6 +60,7 @@ const CreateProfile = ({
   } = formData;
 
   const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
     let { name, value, checked } = e.target;
     if (name === "usegithubavatar") value = checked;
     setFormData({ ...formData, [name]: value });

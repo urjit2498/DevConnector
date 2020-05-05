@@ -16,12 +16,13 @@ const Post = require("../../models/Post");
 const getGitHubAvatar = async (githubusername) => {
   const uri = encodeURI(`https://api.github.com/users/${githubusername}`);
   const headers = {
-    "user-agent": "node.js",
-    Authorization: `token ${config.get("githubToken")}`,
+    'user-agent': 'node.js',
+    Authorization: `token ${config.get('githubToken')}`
   };
   const gitHubResponse = await axios.get(uri, { headers });
   return gitHubResponse.data.avatar_url;
 };
+
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -100,36 +101,36 @@ router.post(
     profileFields.social = socialfields;
 
     try {
-      // update avatar
-      let avatar;
-      if (usegithubavatar) {
-        // if usegithubavatar is true get the users github avatar
-        avatar = await getGitHubAvatar(githubusername);
-      } else {
-        // else use Gravatar
-        const user = await User.findOne({ _id: req.user.id });
+          // update avatar
+          let avatar;
+          if (usegithubavatar) {
+            // if usegithubavatar is true get the users github avatar
+            avatar = await getGitHubAvatar(githubusername);
+          } else {
+            // else use Gravatar
+            const user = await User.findOne({ _id: req.user.id });
 
-        avatar = normalize(
-          gravatar.url(user.email, {
-            s: "200",
-            r: "pg",
-            d: "mm",
-          }),
-          { forceHttps: true }
-        );
-      }
-      // update user's avatar url
-      await User.findOneAndUpdate({ _id: req.user.id }, { avatar });
+            avatar = normalize(
+              gravatar.url(user.email, {
+                s: "200",
+                r: "pg",
+                d: "mm",
+              }),
+              { forceHttps: true }
+            );
+          }
+          // update user's avatar url
+          await User.findOneAndUpdate({ _id: req.user.id }, { avatar });
 
-      // Using upsert option (creates new doc if no match is found):
-      let profile = await Profile.findOneAndUpdate(
-        { user: req.user.id },
-        { $set: profileFields },
-        { new: true, upsert: true }
-      );
+          // Using upsert option (creates new doc if no match is found):
+          let profile = await Profile.findOneAndUpdate(
+            { user: req.user.id },
+            { $set: profileFields },
+            { new: true, upsert: true }
+          );
 
-      res.json(profile);
-    } catch (err) {
+          res.json(profile);
+        } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
     }

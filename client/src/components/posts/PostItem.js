@@ -22,7 +22,7 @@ const PostItem = ({
       </Link>
     </div>
     <div>
-      <p className="my-1" style={{wordBreak:'break-all'}}>{text}</p>
+      <p className="my-1 mytext">{text}</p>
       <p className="post-date">
         Posted on <Moment format="DD/MM/YYYY">{date}</Moment>
       </p>

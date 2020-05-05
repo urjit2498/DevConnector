@@ -4,7 +4,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 const normalize = require("normalize-url");
 
 const User = require('../../models/User');
@@ -53,7 +53,9 @@ router.post('/', [
 
         const payload = {
             user: {
-                id: user.id
+                id: user.id,
+                name: user.name,
+                email: user.email
             }
         }
 

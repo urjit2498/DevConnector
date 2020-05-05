@@ -22,8 +22,6 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
-    dispatch({ type: CLEAR_PROFILE });
-
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -233,7 +231,7 @@ export const deleteAccount = () => async (dispatch) => {
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
 
-      dispatch(setAlert("Your account has been permanantly deleted"));
+      dispatch(setAlert("Your account has been permanently deleted"));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

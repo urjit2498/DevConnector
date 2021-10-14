@@ -38,12 +38,12 @@ module.exports = {
 
 ### Author
 
-Urjit Shah
+* Urjit Shah
 
 ### Version
 
-1.0.0
+* 1.0.0
 
 ### License
 
-This project is licensed under the MIT License
+* [MIT License](https://opensource.org/licenses/MIT)

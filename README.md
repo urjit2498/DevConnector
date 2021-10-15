@@ -38,7 +38,7 @@ module.exports = {
 
 ### Author
 
-* Urjit Shah
+* [Urjit Shah](https://www.linkedin.com/in/urjitshah2498/)
 
 ### Version
 

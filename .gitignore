@@ -2,4 +2,3 @@ node_modules/
 config/default.json
 config/production.json
 package-lock.json
-/client/package-lock.json
